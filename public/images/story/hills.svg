@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" preserveAspectRatio="xMidYMax slice">
+  <path fill="#7a3a2a" opacity="0.75" d="M0 760 L120 700 L240 735 L380 640 L520 715 L640 670 L780 735 L900 690 L1040 720 L1180 650 L1320 705 L1460 665 L1600 710 V1100 H0Z"/>
+  <path fill="#4e2419" d="M0 830 L160 770 L300 805 L460 745 L600 800 L760 760 L920 815 L1080 770 L1220 805 L1400 750 L1600 795 V1100 H0Z"/>
+  <path fill="#2e150e" d="M0 900 Q200 860 420 885 T860 875 T1300 890 T1600 870 V1100 H0Z"/>
+  <!-- road vanishing toward the sun -->
+  <path fill="#24110b" d="M960 880 L1040 880 L1500 1100 L520 1100Z"/>
+  <path stroke="#e8a33d" stroke-opacity="0.45" stroke-width="4" stroke-dasharray="26 34" fill="none" d="M1000 884 L1010 1100"/>
+  <!-- tiny truck on the horizon -->
+  <g transform="translate(1110 852)">
+    <rect x="0" y="0" width="54" height="22" rx="3" fill="#1a0c08"/>
+    <rect x="54" y="8" width="18" height="14" rx="2" fill="#1a0c08"/>
+    <circle cx="12" cy="25" r="5" fill="#1a0c08"/><circle cx="60" cy="25" r="5" fill="#1a0c08"/>
+    <circle cx="70" cy="15" r="2.4" fill="#ffd27a"/>
+  </g>
+</svg>

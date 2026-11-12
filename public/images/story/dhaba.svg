@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" preserveAspectRatio="xMidYMax slice">
+  <defs>
+    <radialGradient id="bulb" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff3d0"/>
+      <stop offset="0.3" stop-color="#ffc55e" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#ffb347" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="win" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffcf7a"/>
+      <stop offset="1" stop-color="#c8641f"/>
+    </linearGradient>
+  </defs>
+  <!-- neem tree -->
+  <g fill="#160a06">
+    <rect x="1350" y="640" width="26" height="320"/>
+    <ellipse cx="1360" cy="600" rx="190" ry="120"/>
+    <ellipse cx="1250" cy="660" rx="110" ry="70"/>
+    <ellipse cx="1470" cy="650" rx="120" ry="80"/>
+  </g>
+  <!-- dhaba shack -->
+  <g>
+    <rect x="160" y="700" width="640" height="280" fill="#1c0d08"/>
+    <path d="M110 705 L850 705 L800 650 L160 640Z" fill="#2a140c"/>
+    <path d="M110 705 L850 705" stroke="#5b2f1c" stroke-width="6"/>
+    <g stroke="#3b1d12" stroke-width="3">
+      <path d="M200 642 L180 705"/><path d="M300 643 L285 705"/><path d="M400 644 L390 705"/>
+      <path d="M500 645 L495 705"/><path d="M600 646 L600 705"/><path d="M700 648 L705 705"/>
+    </g>
+    <rect x="230" y="760" width="200" height="130" fill="url(#win)" opacity="0.9"/>
+    <rect x="500" y="760" width="230" height="220" fill="url(#win)" opacity="0.75"/>
+    <rect x="160" y="700" width="18" height="290" fill="#120804"/>
+    <rect x="782" y="700" width="18" height="290" fill="#120804"/>
+    <!-- sign board -->
+    <rect x="300" y="590" width="360" height="56" rx="4" fill="#7a3f1d"/>
+    <text x="480" y="628" fill="#f5ede1" font-family="Georgia, serif" font-size="28" text-anchor="middle" letter-spacing="8">CHAI · DHABA</text>
+    <!-- figures at the counter -->
+    <g fill="#120804">
+      <circle cx="330" cy="800" r="18"/><path d="M300 890 Q330 812 360 890Z"/>
+      <circle cx="600" cy="815" r="20"/><path d="M566 980 L572 860 Q600 832 628 860 L634 980Z"/>
+    </g>
+  </g>
+  <!-- string lights -->
+  <path d="M60 560 Q420 660 860 590 Q1100 560 1300 620" fill="none" stroke="#120804" stroke-width="3"/>
+  <g>
+    <circle cx="120" cy="582" r="26" fill="url(#bulb)"/><circle cx="220" cy="606" r="26" fill="url(#bulb)"/>
+    <circle cx="330" cy="624" r="26" fill="url(#bulb)"/><circle cx="440" cy="632" r="26" fill="url(#bulb)"/>
+    <circle cx="560" cy="628" r="26" fill="url(#bulb)"/><circle cx="680" cy="614" r="26" fill="url(#bulb)"/>
+    <circle cx="800" cy="598" r="26" fill="url(#bulb)"/><circle cx="920" cy="582" r="26" fill="url(#bulb)"/>
+    <circle cx="1040" cy="578" r="26" fill="url(#bulb)"/><circle cx="1160" cy="590" r="26" fill="url(#bulb)"/>
+    <circle cx="1260" cy="610" r="26" fill="url(#bulb)"/>
+  </g>
+  <rect x="0" y="975" width="1600" height="125" fill="#140906"/>
+</svg>

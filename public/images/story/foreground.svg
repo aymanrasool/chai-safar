@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" preserveAspectRatio="xMidYMax slice">
+  <defs>
+    <radialGradient id="fire" cx="0.5" cy="0.8" r="0.6">
+      <stop offset="0" stop-color="#ffe2a0"/>
+      <stop offset="0.4" stop-color="#ff8a2a" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#ff6a00" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="brass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6b4113"/>
+      <stop offset="0.45" stop-color="#e8b04f"/>
+      <stop offset="1" stop-color="#7a4a16"/>
+    </linearGradient>
+  </defs>
+  <!-- charpai (woven cot) -->
+  <g transform="translate(120 900)">
+    <path d="M0 0 L520 -30 L560 30 L30 70Z" fill="#2b150c"/>
+    <g stroke="#6e3a1a" stroke-width="2" opacity="0.8">
+      <path d="M40 8 L540 -18"/><path d="M45 22 L545 -4"/><path d="M48 36 L550 10"/><path d="M52 50 L554 24"/>
+      <path d="M80 -2 L110 64"/><path d="M180 -8 L210 58"/><path d="M280 -14 L310 50"/><path d="M380 -20 L410 44"/><path d="M480 -26 L505 36"/>
+    </g>
+    <rect x="18" y="60" width="18" height="130" fill="#1a0c07"/>
+    <rect x="535" y="25" width="18" height="140" fill="#1a0c07"/>
+  </g>
+  <!-- clay stove + fire -->
+  <g transform="translate(1080 820)">
+    <ellipse cx="160" cy="80" rx="240" ry="120" fill="url(#fire)" opacity="0.7"/>
+    <path d="M40 60 Q160 20 280 60 L300 260 L20 260Z" fill="#3a1a0e"/>
+    <path d="M110 160 Q160 120 210 160 L210 220 L110 220Z" fill="#ff9a3c"/>
+    <path d="M125 210 Q140 160 160 190 Q175 150 195 210Z" fill="#ffe0a0"/>
+    <!-- brass kettle -->
+    <path d="M90 50 Q90 -50 160 -60 Q230 -50 230 50Z" fill="url(#brass)"/>
+    <ellipse cx="160" cy="-62" rx="30" ry="8" fill="#9a6a24"/>
+    <path d="M226 10 Q290 -10 310 -60" stroke="#c48a35" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <path d="M100 -20 Q40 -30 60 30" stroke="#8a5a1e" stroke-width="8" fill="none"/>
+    <!-- steam -->
+    <g fill="none" stroke="#f5ede1" stroke-linecap="round" opacity="0.4" stroke-width="5">
+      <path d="M150 -80 C120 -130 190 -160 150 -220 C120 -260 170 -300 150 -340"/>
+      <path d="M180 -80 C210 -120 160 -170 200 -220"/>
+    </g>
+  </g>
+  <!-- glasses on a tray -->
+  <g transform="translate(720 960)">
+    <rect x="-20" y="40" width="260" height="14" rx="7" fill="#7a4a16"/>
+    <path d="M0 0 L46 0 L40 40 L6 40Z" fill="#c9844a" opacity="0.85"/>
+    <path d="M80 0 L126 0 L120 40 L86 40Z" fill="#c9844a" opacity="0.85"/>
+    <path d="M160 0 L206 0 L200 40 L166 40Z" fill="#c9844a" opacity="0.85"/>
+    <g fill="#f5ede1" opacity="0.5"><rect x="0" y="0" width="46" height="5"/><rect x="80" y="0" width="46" height="5"/><rect x="160" y="0" width="46" height="5"/></g>
+  </g>
+  <rect x="0" y="1060" width="1600" height="40" fill="#0e0604"/>
+</svg>
