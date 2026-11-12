@@ -38,7 +38,10 @@ function ChaiCard({ chai, index }: { chai: Chai; index: number }) {
         }
       };
       const leave = () => {
-        gsap.to(el, { rotateX: 0, rotateY: 0, z: 0, duration: 1, ease: "elastic.out(1, 0.5)" });
+        // ease back through the same quickTo setters, so no two tweens fight over rotation
+        rx(0);
+        ry(0);
+        gsap.to(el, { z: 0, duration: 0.8, ease: "power3.out" });
         gsap.to(glare.current, { opacity: 0, duration: 0.5 });
       };
 
@@ -62,7 +65,7 @@ function ChaiCard({ chai, index }: { chai: Chai; index: number }) {
         ref={card}
         tabIndex={0}
         data-cursor="Sip"
-        className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-chai/15 bg-espresso-2/80 p-6 outline-none [transform-style:preserve-3d] backdrop-blur-md focus-visible:ring-2 focus-visible:ring-saffron"
+        className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-chai/15 bg-espresso-2/90 p-6 outline-none [transform-style:preserve-3d] focus-visible:ring-2 focus-visible:ring-saffron"
       >
         <div ref={glare} className="pointer-events-none absolute inset-0 opacity-0" />
         <div className="flex items-start justify-between [transform:translateZ(30px)]">

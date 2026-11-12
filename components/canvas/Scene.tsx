@@ -2,7 +2,7 @@
 
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { AdaptiveDpr, PerformanceMonitor } from "@react-three/drei";
+import { PerformanceMonitor } from "@react-three/drei";
 import * as THREE from "three";
 import { appStore, useAppStore } from "@/lib/store";
 import { createPose, DEFAULT_LIQUID, sceneState } from "@/lib/sceneState";
@@ -28,6 +28,9 @@ export default function Scene() {
   const [isMobile] = useState(() => typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches);
   const [degraded, setDegraded] = useState(false);
   const simple = isMobile || degraded;
+  // resolution adapts to the device: starts sharp, drops a little if frames get slow
+  const maxDpr = isMobile ? 1.25 : 1.5;
+  const [dpr, setDpr] = useState(() => Math.min(maxDpr, typeof window !== "undefined" ? window.devicePixelRatio : 1));
 
   const pose = useMemo(() => createPose(), []);
   const color = useMemo(() => new THREE.Color(DEFAULT_LIQUID), []);
@@ -62,14 +65,21 @@ export default function Scene() {
   return (
     <div className="pointer-events-none fixed inset-0 z-0" aria-hidden>
       <Canvas
-        dpr={[1, isMobile ? 1.5 : 2]}
+        dpr={dpr}
         camera={{ fov: 35, position: [0, 0.35, 6.2], near: 0.1, far: 40 }}
-        gl={{ antialias: false, powerPreference: "high-performance", alpha: false, stencil: false }}
+        gl={{ antialias: false, powerPreference: "high-performance", alpha: false, stencil: false, depth: true }}
         frameloop={canvasActive ? "always" : "never"}
+        onCreated={({ gl }) => {
+          // the glass refracts a half-resolution copy of the scene: visually identical, ~4x cheaper
+          gl.transmissionResolutionScale = 0.5;
+        }}
       >
         <color attach="background" args={["#1a0f0a"]} />
-        <PerformanceMonitor onDecline={() => setDegraded(true)} flipflops={2} />
-        <AdaptiveDpr />
+        <PerformanceMonitor
+          onChange={({ factor }) => setDpr(Math.round((1 + (maxDpr - 1) * factor) * 4) / 4)}
+          onDecline={() => setDegraded(true)}
+          flipflops={3}
+        />
         <Suspense fallback={null}>
           <Director pose={pose} color={color} />
           <Lighting simple={simple} />

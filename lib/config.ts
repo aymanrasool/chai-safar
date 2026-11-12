@@ -30,6 +30,14 @@ export const CUP_MODEL = {
   },
 };
 
+/**
+ * Rendering quality switches. Depth of field looks lovely but roughly doubles the GPU cost
+ * of every frame, so it's off by default. Turn it on if your audience has strong GPUs.
+ */
+export const QUALITY = {
+  depthOfField: false,
+};
+
 export const COLORS = {
   espresso: "#1a0f0a",
   chai: "#d9b38c",

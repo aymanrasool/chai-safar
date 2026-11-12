@@ -156,7 +156,7 @@ export function Ingredients() {
               {ing.native}
             </span>
 
-            <article className="ing-card relative w-full max-w-md rounded-3xl border border-chai/15 bg-espresso/70 p-7 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.8)] backdrop-blur-md md:mr-[4vw] md:p-10">
+            <article className="ing-card relative w-full max-w-md rounded-3xl border border-chai/15 bg-espresso/85 p-7 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.8)] md:mr-[4vw] md:p-10">
               <div className="ing-rise flex items-center justify-between text-[11px] tracking-[0.4em] text-saffron uppercase">
                 <span>
                   {String(i + 1).padStart(2, "0")} / {String(INGREDIENTS.length).padStart(2, "0")}

@@ -24,8 +24,16 @@ export function Marquee({ reverse = false, className = "" }: { reverse?: boolean
       const setX = gsap.quickSetter(el, "x", "px");
       const setSkew = gsap.quickSetter(el, "skewX", "deg");
 
+      // only animate while on screen; measure width once (and on resize), not every frame
+      let visible = false;
+      let half = el.scrollWidth / 2;
+      const io = new IntersectionObserver(([entry]) => (visible = entry.isIntersecting));
+      io.observe(el);
+      const ro = new ResizeObserver(() => (half = el.scrollWidth / 2));
+      ro.observe(el);
+
       const tick = (_t: number, deltaMs: number) => {
-        const half = el.scrollWidth / 2;
+        if (!visible) return;
         if (!half) return;
         const v = getScrollVelocity();
         if (Math.abs(v) > 0.2) dir = (v > 0 ? -1 : 1) * (reverse ? -1 : 1);
@@ -42,7 +50,11 @@ export function Marquee({ reverse = false, className = "" }: { reverse?: boolean
         }
       };
       gsap.ticker.add(tick);
-      return () => gsap.ticker.remove(tick);
+      return () => {
+        gsap.ticker.remove(tick);
+        io.disconnect();
+        ro.disconnect();
+      };
     },
     { scope: root },
   );
@@ -51,7 +63,7 @@ export function Marquee({ reverse = false, className = "" }: { reverse?: boolean
   return (
     <div
       ref={root}
-      className={`relative overflow-hidden border-y border-chai/15 bg-espresso/60 py-6 backdrop-blur-sm md:py-8 ${className}`}
+      className={`relative overflow-hidden border-y border-chai/15 bg-espresso/85 py-6 md:py-8 ${className}`}
       aria-label="Our chais"
     >
       <div ref={track} className="flex w-max items-center will-change-transform">

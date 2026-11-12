@@ -33,7 +33,8 @@ export function Hero() {
         opacity: 0,
         yPercent: 70,
         rotateX: -70,
-        filter: "blur(18px)",
+        filter: "blur(8px)",
+        clearProps: "filter", // drop the filter afterwards so the headline isn't a filtered layer while scrolling
         duration: 1.6,
         ease: "expo.out",
         stagger: { each: 0.045, from: "start" },

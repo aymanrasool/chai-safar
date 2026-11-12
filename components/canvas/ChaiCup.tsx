@@ -34,6 +34,10 @@ export function ChaiCup({ pose, color, simple }: Props) {
     const reduced = sceneState.reducedMotion;
     const float = reduced ? 0 : Math.sin(t * 0.9) * 0.06;
 
+    // off-screen (spice + story chapters): skip drawing it, which also skips the glass refraction pass
+    root.visible = pose.y > -3.7 && pose.y < 4.2;
+    if (!root.visible) return;
+
     root.position.set(pose.x, pose.y + float, pose.z);
     root.scale.setScalar(pose.scale);
 
@@ -59,7 +63,10 @@ export function ChaiCup({ pose, color, simple }: Props) {
       </group>
       <group position-y={-CUP_HALF}>
         <PourStream pose={pose} color={color} simple={simple} />
+        {/* the glass is round, so its shadow never changes shape: bake it once
+            (it still moves with the cup because it lives inside the cup's group) */}
         <ContactShadows
+          frames={1}
           position-y={-0.02}
           opacity={0.5}
           scale={2.6}

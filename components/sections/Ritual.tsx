@@ -20,14 +20,15 @@ export function Ritual() {
         const steps = gsap.utils.toArray<HTMLElement>(".ritual-step");
         const dots = gsap.utils.toArray<HTMLElement>(".ritual-dot");
         const tl = gsap.timeline({ paused: true, defaults: { ease: "none" } });
-        gsap.set(steps, { autoAlpha: 0, y: 60, filter: "blur(10px)" });
+        // opacity + transform only: both stay on the compositor, so scrubbing is free
+        gsap.set(steps, { autoAlpha: 0, y: 60 });
 
         steps.forEach((step, i) => {
           const at = i * 1;
-          tl.to(step, { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.3, ease: "power2.out" }, at + 0.1)
+          tl.to(step, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power2.out" }, at + 0.1)
             .to(dots[i], { backgroundColor: "#e8a33d", scale: 1.6, duration: 0.2 }, at + 0.1);
           if (i < steps.length - 1) {
-            tl.to(step, { autoAlpha: 0, y: -60, filter: "blur(10px)", duration: 0.3, ease: "power2.in" }, at + 0.8).to(
+            tl.to(step, { autoAlpha: 0, y: -60, duration: 0.3, ease: "power2.in" }, at + 0.8).to(
               dots[i],
               { backgroundColor: "rgba(217,179,140,0.3)", scale: 1, duration: 0.2 },
               at + 0.85,
@@ -90,7 +91,7 @@ export function Ritual() {
             {RITUAL_STEPS.map((s) => (
               <li
                 key={s.n}
-                className="ritual-step absolute bottom-0 left-0 max-w-md rounded-3xl bg-espresso/60 p-5 backdrop-blur-sm md:max-w-lg md:bg-transparent md:p-0 md:backdrop-blur-none motion-reduce:relative motion-reduce:opacity-100"
+                className="ritual-step absolute bottom-0 left-0 max-w-md rounded-3xl bg-espresso/75 p-5 md:max-w-lg md:bg-transparent md:p-0 motion-reduce:relative motion-reduce:opacity-100"
               >
                 <div className="flex items-baseline gap-4">
                   <span className="font-serif text-5xl leading-none text-saffron md:text-8xl">{s.n}</span>
